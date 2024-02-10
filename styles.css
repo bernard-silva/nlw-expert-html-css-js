@@ -60,6 +60,23 @@ header h1 {
   background-color: #1e293b;
 }
 
+.quiz-item h3::before {
+  /* Incrementa um contador a partir da class quiz-item */
+  counter-increment: quiz-item;
+  content: counter(quiz-item);
+
+  background-color: #475569;
+  width: 28px;
+  height: 28px;
+  font-size: 12px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Controla do compressão/encurtamento do elemento */
+}
+
 .quiz-item dl {
   padding: 20px 24px;
 
@@ -79,8 +96,33 @@ header h1 {
   color: #e2e8f0;
 }
 
+input {
+  all: unset; /* all: todas as propriedades; unset: remove tudo */
+  border: 1px solid #94a3b8;
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
 input:checked {
   border: 1px solid #a3e635;
+}
+
+input:checked:before {
+  content: ""; /* Colocar como vazio para aplicar novas propriedades 
+                ao clique do radio, como sendo um filho do input */
+  width: 10px;
+  height: 10px;
+
+  background-color: #a3e635;
+  border-radius: 50%;
 }
 
 #acertos {
